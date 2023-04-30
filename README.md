@@ -16,4 +16,6 @@ The following techniques have been used:
  - All the above said modelling techniques are tried and evaluated. The final metric used to evaluate is mean squared error.
 
 ## To excute the script
-python < scriptname.py >
+1.Open the command prompt 
+2.Use this "conda env create -f env.yml" to create an environment with necessary libraries
+3.Type "python < scriptname.py >"
