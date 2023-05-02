@@ -31,7 +31,7 @@ def fetch_housing_data(housing_url=HOUSING_URL, housing_path=HOUSING_PATH):
 
 
 housing1 = fetch_housing_data(housing_url=HOUSING_URL,
-                            housing_path=HOUSING_PATH)
+                        housing_path=HOUSING_PATH)
 
 
 def load_housing_data(housing_path=HOUSING_PATH):
