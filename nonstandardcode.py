@@ -30,7 +30,8 @@ def fetch_housing_data(housing_url=HOUSING_URL, housing_path=HOUSING_PATH):
     housing_tgz.close()
 
 
-housing1 = fetch_housing_data(housing_url=HOUSING_URL, housing_path=HOUSING_PATH)
+housing1 = fetch_housing_data(housing_url=HOUSING_URL,
+                            housing_path=HOUSING_PATH)
 
 
 def load_housing_data(housing_path=HOUSING_PATH):
@@ -86,9 +87,12 @@ housing.plot(kind="scatter", x="longitude", y="latitude", alpha=0.1)
 housing_1 = housing.drop(["ocean_proximity"], axis=1)
 corr_matrix = housing_1.corr()
 corr_matrix["median_house_value"].sort_values(ascending=False)
-housing["rooms_per_household"] = housing["total_rooms"] / housing["households"]
-housing["bedrooms_per_room"] = housing["total_bedrooms"] / housing["total_rooms"]
-housing["population_per_household"] = housing["population"] / housing["households"]
+housing["rooms_per_household"] = \
+    housing["total_rooms"] / housing["households"]
+housing["bedrooms_per_room"] = \
+    housing["total_bedrooms"] / housing["total_rooms"]
+housing["population_per_household"] =\
+      housing["population"] / housing["households"]
 
 housing = strat_train_set.drop(
     "median_house_value", axis=1
