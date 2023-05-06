@@ -92,6 +92,7 @@ from sklearn.impute import SimpleImputer
 
 imputer = SimpleImputer(strategy="median")
 
+
 housing_num = housing.drop("ocean_proximity", axis=1)
 
 imputer.fit(housing_num)
