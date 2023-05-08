@@ -16,6 +16,8 @@ The following techniques have been used:
  - All the above said modelling techniques are tried and evaluated. The final metric used to evaluate is mean squared error.
 
 ## To excute the script
-1.Open the command prompt 
-2.Use this "conda env create -f env.yml" to create an environment with necessary libraries
-3.Type "python < scriptname.py >"
+  1.Open the command prompt 
+  2.Use this "conda env create -f env.yml" to create an environment with necessary libraries
+  3.Type python nonstandardcode.py
+  4.1-Type pip install pre-commit,make changes to python file and commit those changes
+  4.2-Manually type commands ,black nonstandardcode.py,isort nonstandardcode.py,flake8 nonstandardcode.py
