@@ -31,8 +31,7 @@ def fetch_housing_data(housing_url=HOUSING_URL, housing_path=HOUSING_PATH):
     housing_tgz.close()
 
 
-housing1 = fetch_housing_data(housing_url=HOUSING_URL,
-                              housing_path=HOUSING_PATH)
+housing1 = fetch_housing_data(housing_url=HOUSING_URL, housing_path=HOUSING_PATH)
 
 
 def load_housing_data(housing_path=HOUSING_PATH):
@@ -88,12 +87,9 @@ housing.plot(kind="scatter", x="longitude", y="latitude", alpha=0.1)
 housing_1 = housing.drop(["ocean_proximity"], axis=1)
 corr_matrix = housing_1.corr()
 corr_matrix["median_house_value"].sort_values(ascending=False)
-housing["rooms_per_household"] = \
-    housing["total_rooms"] / housing["households"]
-housing["bedrooms_per_room"] = \
-    housing["total_bedrooms"] / housing["total_rooms"]
-housing["population_per_household"] = \
-    housing["population"] / housing["households"]
+housing["rooms_per_household"] = housing["total_rooms"] / housing["households"]
+housing["bedrooms_per_room"] = housing["total_bedrooms"] / housing["total_rooms"]
+housing["population_per_household"] = housing["population"] / housing["households"]
 
 housing = strat_train_set.drop(
     "median_house_value", axis=1
@@ -109,8 +105,8 @@ imputer.fit(housing_num)
 X = imputer.transform(housing_num)
 
 housing_tr = pd.DataFrame(X, columns=housing_num.columns, index=housing.index)
-housing_tr["rooms_per_household"] = \
-    housing_tr["total_rooms"] / housing_tr["households"]
+
+housing_tr["rooms_per_household"] = housing_tr["total_rooms"] / housing_tr["households"]
 housing_tr["bedrooms_per_room"] = (
     housing_tr["total_bedrooms"] / housing_tr["total_rooms"]
 )
@@ -119,8 +115,7 @@ housing_tr["population_per_household"] = (
 )
 
 housing_cat = housing[["ocean_proximity"]]
-housing_prepared = \
-    housing_tr.join(pd.get_dummies(housing_cat, drop_first=True))
+housing_prepared = housing_tr.join(pd.get_dummies(housing_cat, drop_first=True))
 
 
 lin_reg = LinearRegression()
@@ -130,7 +125,6 @@ housing_predictions = lin_reg.predict(housing_prepared)
 lin_mse = mean_squared_error(housing_labels, housing_predictions)
 lin_rmse = np.sqrt(lin_mse)
 lin_rmse
-
 
 lin_mae = mean_absolute_error(housing_labels, housing_predictions)
 lin_mae
@@ -143,7 +137,6 @@ housing_predictions = tree_reg.predict(housing_prepared)
 tree_mse = mean_squared_error(housing_labels, housing_predictions)
 tree_rmse = np.sqrt(tree_mse)
 tree_rmse
-
 
 param_distribs = {
     "n_estimators": randint(low=1, high=200),
@@ -212,8 +205,7 @@ X_test_prepared["population_per_household"] = (
 )
 
 X_test_cat = X_test[["ocean_proximity"]]
-X_test_prepared = \
-    X_test_prepared.join(pd.get_dummies(X_test_cat, drop_first=True))
+X_test_prepared = X_test_prepared.join(pd.get_dummies(X_test_cat, drop_first=True))
 
 
 final_predictions = final_model.predict(X_test_prepared)
