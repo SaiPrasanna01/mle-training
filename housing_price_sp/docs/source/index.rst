@@ -1,5 +1,5 @@
 .. Housing Price documentation master file, created by
-   sphinx-quickstart on Sun May 21 21:06:16 2023.
+   sphinx-quickstart on Mon May 22 13:26:23 2023.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
@@ -10,6 +10,8 @@ Welcome to Housing Price's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+
+   modules
 
 
 Indices and tables

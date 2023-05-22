@@ -188,7 +188,7 @@ if __name__ == "__main__":
     if args.log_path:
         log_file = args.log_path
     else:
-        log_file = "D:/mle-training/housing_price_sp/src/logs/ingest_data_logs.log"
+        log_file = "D:/mle-training/housing_price_sp/logs/ingest_data_logs.log"
     if args.no_console_log:
         console_log = False
 
