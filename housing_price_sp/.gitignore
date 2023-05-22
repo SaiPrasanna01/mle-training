@@ -1,3 +1,10 @@
 *.pyc
 *.csv
 *.xlsx
+build/
+develop-eggs/
+dist/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
