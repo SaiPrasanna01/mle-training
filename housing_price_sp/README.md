@@ -1,0 +1,85 @@
+# Median housing value prediction
+
+The housing data can be downloaded from https://raw.githubusercontent.com/ageron/handson-ml/master/. The script has codes to download the data. We have modelled the median house value on given housing data.
+
+The following techniques have been used:
+
+ - Linear regression
+ - Decision Tree
+ - Random Forest
+
+## Steps performed
+ - We prepare and clean the data. We check and impute for missing values.
+ - Features are generated and the variables are checked for correlation.
+ - Multiple sampling techinuqies are evaluated. The data set is split into train and test.
+ - All the above said modelling techniques are tried and evaluated. The final metric used to evaluate is mean squared error.
+
+## To excute the script
+-  ``` conda env create -f env.yml ``` to create the environment from env.yml file
+-	 ``` conda activate env.yml``` to activate the environment
+
+This code has python files refactored as scripts and are able to install as a package.
+All the python scripts are available at ```src/housing_price```.
+This folder contains ```datasets``` which has the required datsets along with train and test datasets as csv files.
+
+```housing_price``` folder is refactored to a package so it contains ```__init__.py```.
+
+This package also contains ```tests``` folder which has some functional and unit tests for this project.
+
+For installing the ```housing_price``` package we can just run the below command:
+
+```
+(<env>) (root-folder)$py setup.py install
+
+```
+
+`setup.py` contains code which will install the required packages and can use as a library.
+
+For running scripts we can run the below command:
+I have used argparse for taking the arguments from the command line:
+
+```
+(<env>) (script-folder)$py <script>.py --args
+```
+
+you can run the below code to see what are the options each script takes:
+
+```
+(<env>) (script-folder)$py <script>.py --help
+or
+(<env>) (script-folder)$py <script>.py -h
+
+```
+You can also run the scripts simply without specifying the any arguments in that case the command should be like below
+```
+(<env>) (script-folder)$py <script>.py
+
+```
+
+For running the tests you can just run the below command:
+
+```
+(<env>) (tests-folder)$py <script>.py
+
+```
+These are the required commands for executing this project.
+
+## Documentation using sphinx
+ The below all steps are intended to tell the user to how to generate html documented pages for your code
+ 
+ steps to create documentation for package using sphinx
+ 
+ Run the below command inside a docs folder
+ ``` 
+ sphinx-quickstart
+ ```
+ add appropriate extensions in ``` conf.py ``` file
+ ``` 
+ sphinx-apidoc -o docs <scripts_folder>/
+ ```
+ include generated modules.rst file into your ``` index.rst ``` file
+ move to the docs folder and run 
+ ``` 
+ make html
+ ```
+ If you want to do some changes in scripts first run ``` make clean html ``` this will delete all created files and again run ``` make html ```
