@@ -1,3 +1,0 @@
-housing_price_sp
-logs
-tests
