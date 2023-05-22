@@ -1,3 +1,13 @@
 *.pyc
 *.csv
 *.xlsx
+datasets/
+build/
+develop-eggs/
+dist/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+*.pkl
+*.txt
