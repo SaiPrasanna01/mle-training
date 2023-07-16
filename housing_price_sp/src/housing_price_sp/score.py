@@ -87,7 +87,7 @@ def eval_metrics(data_path, output_path, model_path):
 
     # Flag to verify the successful completion of code
     flag_var = False
-
+    os.makedirs(output_path,exist_ok=True)
     # Loading data
     strat_train_set = pd.read_csv(data_path + "/train/train.csv")
     strat_test_set = pd.read_csv(data_path + "/test/test.csv")
@@ -132,6 +132,7 @@ def eval_metrics(data_path, output_path, model_path):
     mae = metrics.mean_absolute_error(y_test, final_predictions)
     r2 = metrics.r2_score(y_test, final_predictions)
 
+
     with open(os.path.join(output_path, "score.txt"), "w") as file1:
         file1.write("Test Scores\n")
         file1.write("Root Mean Squared Error {}".format(rmse))
@@ -156,14 +157,14 @@ def eval_metrics(data_path, output_path, model_path):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("-m", "--model_path", help="give model path", required=False, nargs='?', default='../../artifacts')
+    parser.add_argument("-m", "--model_path", help="give model path", required=False, nargs='?', default='artifacts')
     parser.add_argument(
-        "-d", "--data_path", help="give data folder path", required=False, nargs='?', default='datasets/housing'
+        "-d", "--data_path", help="give data folder path", required=False, nargs='?', default='datasets'
     )
     parser.add_argument(
         "-o",
         "--output_path",
-        help="give output folder path",required=False,nargs='?',default='../../score/'
+        help="give output folder path",required=False,nargs='?',default='model_results'
     )
     parser.add_argument("--log-level", help="specify the log level")
     parser.add_argument("--log-path", help="use a log file or not")

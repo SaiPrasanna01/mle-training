@@ -89,7 +89,7 @@ def prepare_train(file_path):
     # HOUSING_URL = DOWNLOAD_ROOT + "datasets/housing/housing.tgz"
 
     """Given HOUSING_URL and housing_path, fetches housing_data file."""
-    # os.makedirs(HOUSING_PATH, exist_ok=True)
+    #os.makedirs(HOUSING_PATH, exist_ok=True)
     # tgz_path = os.path.join(HOUSING_PATH, "housing.tgz")
     # req = requests.get(HOUSING_URL)
     # with open(tgz_path, "wb") as f:
@@ -153,8 +153,12 @@ def prepare_train(file_path):
     housing["bedrooms_per_room"] = housing["total_bedrooms"] / housing["total_rooms"]
     housing["population_per_household"] = housing["population"] / housing["households"]
 
-    strat_train_set.to_csv(file_path + "/train/train.csv")
-    strat_test_set.to_csv(file_path + "/test/test.csv")
+    train_path=file_path+"/train/"
+    test_path=file_path+"/test/"
+    os.makedirs(train_path, exist_ok=True)
+    os.makedirs(test_path, exist_ok=True)
+    strat_train_set.to_csv(train_path + "train.csv")
+    strat_test_set.to_csv(test_path + "test.csv")
 
     print("Successfully created Training and Validation datasets!")
     flag_var = True

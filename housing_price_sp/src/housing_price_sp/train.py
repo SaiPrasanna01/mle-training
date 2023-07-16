@@ -2,6 +2,7 @@
 import argparse
 import logging
 import logging.config
+import os
 
 import joblib
 
@@ -91,7 +92,9 @@ def training_data(input_path, output_path):
 
     # Flag to verify the successful completion of code
     flag_var = False
-
+    os.makedirs(output_path,exist_ok=True)
+    print(output_path)
+    print("hi")
     # Reading train data
     strat_train_set = pd.read_csv(input_path + "/train/train.csv")
     strat_test_set = pd.read_csv(input_path + "/test/test.csv")
@@ -235,7 +238,7 @@ def training_data(input_path, output_path):
     # final_rmse = np.sqrt(final_mse)
     joblib.dump(final_model, output_path + "/housing_model.pkl")
 
-    print("Successfullt created model file in the given folder!")
+    print("Successfully created model file in the given folder!")
 
     flag_var = True
 
@@ -246,10 +249,10 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "-i", "--input_path", help="give input folder path", required=False,nargs='?', default= 'datasets/housing'
+        "-i", "--input_path", help="give input folder path", required=False,nargs='?', default= 'datasets'
     )
     parser.add_argument(
-        "-o", "--output_path", help="give output folder path", required=False, nargs='?', default='../../artifacts'
+        "-o", "--output_path", help="give output folder path", required=False, nargs='?', default='artifacts'
     )
     parser.add_argument("--log-level", help="specify the log level")
     parser.add_argument("--log-path", help="use a log file or not")
